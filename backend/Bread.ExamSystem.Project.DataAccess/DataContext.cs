@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using Bread.ExamSystem.Project.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using WalkingTec.Mvvm.Core;
@@ -26,7 +27,51 @@ namespace Bread.ExamSystem.Project.DataAccess
         {
         }
 
-        
+        /// <summary>
+        /// 题型
+        /// </summary>
+        public DbSet<QuestionType> QuestionTypes { get; set; }
+        /// <summary>
+        /// 题库
+        /// </summary>
+        public DbSet<Question> Questions { get; set; }
+        /// <summary>
+        /// 考试设置
+        /// </summary>
+        public DbSet<ExaminationSetup> ExaminationSetups { get; set; }
+        /// <summary>
+        /// 印章
+        /// </summary>
+        public DbSet<Seal> Seals { get; set; }
+        /// <summary>
+        /// 免账号参与考试记录
+        /// </summary>
+        public DbSet<RecordNoAccount> RecordNoAccounts { get; set; }
+        /// <summary>
+        /// 登录账号参与考试记录
+        /// </summary>
+        public DbSet<RecordWithAccount> RecordWithAccounts { get; set; }
+        /// <summary>
+        /// 登录用户
+        /// </summary>
+        public DbSet<WebUser> WebUsers { get; set; }
+        /// <summary>
+        /// 轮播图设置
+        /// </summary>
+        public DbSet<RotationChart> RotationCharts { get; set; }
+        /// <summary>
+        /// 试题收藏夹
+        /// </summary>
+        public DbSet<Collection> Collections { get; set; }
+        /// <summary>
+        /// 单位
+        /// </summary>
+        public DbSet<UnitWork> UnitWorks { get; set; }
+        /// <summary>
+        /// 错题库
+        /// </summary>
+        public DbSet<WrongQuestionBank> WrongQuestionBanks { get; set; }
+
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
         public override async Task<bool> DataInit(object allModules, bool IsSpa)
