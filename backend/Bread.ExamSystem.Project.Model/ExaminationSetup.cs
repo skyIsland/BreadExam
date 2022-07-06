@@ -44,7 +44,6 @@ namespace Bread.ExamSystem.Project.Model
         [Required(ErrorMessage = "考试时间是必填项")]
         public int TestTime { get; set; }
         [Display(Name = "结业证件")]
-        [Required(ErrorMessage = "考结业证件是必填项")]
         public Guid? SealId { get; set; }
         [Display(Name = "结业证件")]
         public Seal Seal { get; set; }

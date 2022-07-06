@@ -1,26 +1,87 @@
 ﻿@model Bread.ExamSystem.Project.ViewModel.ExaminationSetupVMs.ExaminationSetupVM
-@inject IStringLocalizer<Program> Localizer;
 
 <wt:form vm="@Model">
-<wt:row items-per-row="ItemsPerRowEnum.Two">
-<wt:textbox field="Entity.Title" />
-<wt:datetime field="Entity.StrTime" />
-<wt:datetime field="Entity.EndTime" />
-<wt:combobox field="Entity.CourseEnum" />
-<wt:textbox field="Entity.DXNumer" />
-<wt:textbox field="Entity.DXScore" />
-<wt:textbox field="Entity.DSXNumer" />
-<wt:textbox field="Entity.DSXScore" />
-<wt:textbox field="Entity.PDNumer" />
-<wt:textbox field="Entity.PDScore" />
-<wt:textbox field="Entity.TestTime" />
-<wt:combobox field="Entity.SealId" items="AllSeals"/>
-<wt:combobox field="Entity.ParticipationTypes" />
-<wt:textbox field="Entity.Subject" />
-</wt:row>
+
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+        <legend>考试设置</legend>
+    </fieldset>
+
+    <wt:row items-per-row="ItemsPerRowEnum.Two">
+        <wt:textbox field="Entity.Title" />
+        <wt:combobox field="Entity.Subject" items="SubjectSelect" />
+        <wt:datetime field="Entity.StrTime" />
+        <wt:datetime field="Entity.EndTime" />
+        <wt:textbox field="Entity.TestTime" />
+        <wt:combobox field="Entity.CourseEnum" />
+        <wt:combobox field="Entity.ParticipationTypes" />
+    </wt:row>
+
+
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+        <legend>题型设置</legend>
+    </fieldset>
+
+    <wt:row items-per-row="ItemsPerRowEnum.Two">
+        <wt:textbox field="Entity.DXNumer" />
+        <wt:textbox field="Entity.DXScore" />
+        <wt:textbox field="Entity.DSXNumer" />
+        <wt:textbox field="Entity.DSXScore" />
+        <wt:textbox field="Entity.PDNumer" />
+        <wt:textbox field="Entity.PDScore" />
+        <div class="layui-inline">
+            <label class="layui-form-label">总分（自动计算）</label>
+            <div class="layui-input-inline">
+                <input type="text" id="zf" class="layui-input">
+            </div>
+        </div>
+
+    </wt:row>
+
+    <wt:row align="AlignEnum.Left">
+        <wt:linkbutton target=" ButtonTargetEnum.Layer" text="没有题库？去上传" theme=ButtonThemeEnum.Danger url="/CURD/Question/Index" window-title="上传题库" window-width="1200" window-height="800" />
+    </wt:row>
+
+
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+        <legend>证件设置</legend>
+    </fieldset>
+
+    <wt:row items-per-row="ItemsPerRowEnum.One">
+        @*<wt:combobox field="Entity.SealId" items="AllSeals" />*@
+        <wt:selector field="Entity.SealId" list-vm="Seals" text-bind="Seals.EntityList[0].Name" select-button-text="模板">
+            <wt:searchpanel vm="Seals">
+                <wt:row items-per-row=" ItemsPerRowEnum.Two">
+                    <wt:textbox field="Seals.Searcher.Name" />
+
+                </wt:row>
+            </wt:searchpanel>
+        </wt:selector>
+    </wt:row>
+
+    <wt:row align="AlignEnum.Left">
+        <wt:linkbutton target=" ButtonTargetEnum.Layer" text="没有想要的模板？去制作" theme=ButtonThemeEnum.Danger url="/CURD/Seal/Index" window-title="证件制作" window-width="1200" window-height="800" />
+    </wt:row>
+
+
     <wt:hidden field="Entity.ID" />
+
     <wt:row align="AlignEnum.Right">
         <wt:submitbutton />
         <wt:closebutton />
     </wt:row>
 </wt:form>
+
+<script>
+    $("#ExaminationSetupVM_Entity_DXNumer,#ExaminationSetupVM_Entity_DXScore,#ExaminationSetupVM_Entity_DSXNumer,#ExaminationSetupVM_Entity_DSXScore,#ExaminationSetupVM_Entity_PDNumer,#ExaminationSetupVM_Entity_PDScore").bind('input propertychange', function () {
+        var DXNumer = $('#ExaminationSetupVM_Entity_DXNumer').val();
+        var DXScore = $('#ExaminationSetupVM_Entity_DXScore').val();
+        var DSXNumer = $('#ExaminationSetupVM_Entity_DSXNumer').val();
+        var DSXScore = $('#ExaminationSetupVM_Entity_DSXScore').val();
+        var PDNumer = $('#ExaminationSetupVM_Entity_PDNumer').val();
+        var PDScore = $('#ExaminationSetupVM_Entity_PDScore').val();
+        $('#zf').val(DXNumer * DXScore + DSXNumer * DSXScore + PDNumer * PDScore);
+    });
+
+
+    $('#zf')
+</script>

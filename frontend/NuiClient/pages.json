@@ -1,0 +1,75 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "uni-app"
+			}
+		}
+	    ,{
+            "path" : "pages/noAccount/activitylist",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/noAccount/signup",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/component/testpage",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/noAccount/testview",
+            "style" : {}
+        }       
+        ,{
+            "path" : "pages/withAccount/Login",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/withAccount/testlist",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/withAccount/testview",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/public/resultview",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/withAccount/login-result",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/withAccount/registered",
+            "style" : {}
+        }
+      
+        ,{
+            "path" : "pages/withAccount/changepwd",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/withAccount/usercentre",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/withAccount/scorequery",
+            "style" : {}
+        }
+       
+        ,{
+            "path" : "pages/withAccount/wrongquestionrecord",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/withAccount/wrongquestionone",
+            "style" : {}
+        }
+    ],
+	"globalStyle": {
+		"navigationStyle": "custom"
+	}
+}

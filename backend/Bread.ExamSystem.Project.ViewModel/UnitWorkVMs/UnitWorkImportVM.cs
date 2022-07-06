@@ -14,9 +14,8 @@ namespace Bread.ExamSystem.Project.ViewModel.UnitWorkVMs
     {
         [Display(Name = "部门名称")]
         public ExcelPropety UnitWorkName_Excel = ExcelPropety.CreateProperty<UnitWork>(x => x.UnitWorkName);
-        [Display(Name = "上级部门")]
+        [Display(Name = "_Admin.Parent")]
         public ExcelPropety Parent_Excel = ExcelPropety.CreateProperty<UnitWork>(x => x.ParentId);
-
 
 	    protected override void InitVM()
         {

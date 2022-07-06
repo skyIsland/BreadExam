@@ -17,12 +17,10 @@ namespace Bread.ExamSystem.Project.ViewModel.UnitWorkVMs
         public UnitWorkVM()
         {
             SetInclude(x => x.Parent);
-            SetInclude(x => x.Parent);
         }
 
         protected override void InitVM()
         {
-            AllParents = DC.Set<UnitWork>().GetSelectListItems(Wtm, y => y.UnitWorkName);
             AllParents = DC.Set<UnitWork>().GetSelectListItems(Wtm, y => y.UnitWorkName);
         }
 

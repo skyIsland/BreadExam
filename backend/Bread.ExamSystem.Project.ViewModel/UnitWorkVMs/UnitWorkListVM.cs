@@ -34,7 +34,6 @@ namespace Bread.ExamSystem.Project.ViewModel.UnitWorkVMs
             return new List<GridColumn<UnitWork_View>>{
                 this.MakeGridHeader(x => x.UnitWorkName),
                 this.MakeGridHeader(x => x.UnitWorkName_view),
-                this.MakeGridHeader(x => x.UnitWorkName_view2),
                 this.MakeGridHeaderAction(width: 200)
             };
         }
@@ -47,7 +46,6 @@ namespace Bread.ExamSystem.Project.ViewModel.UnitWorkVMs
 				    ID = x.ID,
                     UnitWorkName = x.UnitWorkName,
                     UnitWorkName_view = x.Parent.UnitWorkName,
-                    UnitWorkName_view2 = x.Parent.UnitWorkName,
                 })
                 .OrderBy(x => x.ID);
             return query;
@@ -56,10 +54,8 @@ namespace Bread.ExamSystem.Project.ViewModel.UnitWorkVMs
     }
 
     public class UnitWork_View : UnitWork{
-        [Display(Name = "部门名称")]
+        [Display(Name = "上级部门")]
         public String UnitWorkName_view { get; set; }
-        [Display(Name = "部门名称")]
-        public String UnitWorkName_view2 { get; set; }
 
     }
 }

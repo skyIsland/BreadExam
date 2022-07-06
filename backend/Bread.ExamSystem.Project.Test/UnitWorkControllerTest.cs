@@ -43,7 +43,7 @@ namespace Bread.ExamSystem.Project.Test
             UnitWorkVM vm = rv.Model as UnitWorkVM;
             UnitWork v = new UnitWork();
 			
-            v.UnitWorkName = "n5zbE5Q15Kmiwss0gTK";
+            v.UnitWorkName = "Rh";
             v.ParentId = AddUnitWork();
             vm.Entity = v;
             _controller.Create(vm);
@@ -52,7 +52,7 @@ namespace Bread.ExamSystem.Project.Test
             {
                 var data = context.Set<UnitWork>().Find(v.ID);
 				
-                Assert.AreEqual(data.UnitWorkName, "n5zbE5Q15Kmiwss0gTK");
+                Assert.AreEqual(data.UnitWorkName, "Rh");
             }
 
         }
@@ -64,7 +64,7 @@ namespace Bread.ExamSystem.Project.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
        			
-                v.UnitWorkName = "n5zbE5Q15Kmiwss0gTK";
+                v.UnitWorkName = "Rh";
                 v.ParentId = AddUnitWork();
                 context.Set<UnitWork>().Add(v);
                 context.SaveChanges();
@@ -78,7 +78,7 @@ namespace Bread.ExamSystem.Project.Test
             v = new UnitWork();
             v.ID = vm.Entity.ID;
        		
-            v.UnitWorkName = "WK0ON9qN1XPNXHS";
+            v.UnitWorkName = "gyXkf1BSygfBpwpQ1w";
             vm.Entity = v;
             vm.FC = new Dictionary<string, object>();
 			
@@ -90,7 +90,7 @@ namespace Bread.ExamSystem.Project.Test
             {
                 var data = context.Set<UnitWork>().Find(v.ID);
  				
-                Assert.AreEqual(data.UnitWorkName, "WK0ON9qN1XPNXHS");
+                Assert.AreEqual(data.UnitWorkName, "gyXkf1BSygfBpwpQ1w");
             }
 
         }
@@ -103,7 +103,7 @@ namespace Bread.ExamSystem.Project.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
         		
-                v.UnitWorkName = "n5zbE5Q15Kmiwss0gTK";
+                v.UnitWorkName = "Rh";
                 v.ParentId = AddUnitWork();
                 context.Set<UnitWork>().Add(v);
                 context.SaveChanges();
@@ -134,7 +134,7 @@ namespace Bread.ExamSystem.Project.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
 				
-                v.UnitWorkName = "n5zbE5Q15Kmiwss0gTK";
+                v.UnitWorkName = "Rh";
                 v.ParentId = AddUnitWork();
                 context.Set<UnitWork>().Add(v);
                 context.SaveChanges();
@@ -152,9 +152,9 @@ namespace Bread.ExamSystem.Project.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
 				
-                v1.UnitWorkName = "n5zbE5Q15Kmiwss0gTK";
+                v1.UnitWorkName = "Rh";
                 v1.ParentId = AddUnitWork();
-                v2.UnitWorkName = "WK0ON9qN1XPNXHS";
+                v2.UnitWorkName = "gyXkf1BSygfBpwpQ1w";
                 v2.ParentId = v1.ParentId; 
                 context.Set<UnitWork>().Add(v1);
                 context.Set<UnitWork>().Add(v2);
@@ -188,9 +188,9 @@ namespace Bread.ExamSystem.Project.Test
             using (var context = new DataContext(_seed, DBTypeEnum.Memory))
             {
 				
-                v1.UnitWorkName = "n5zbE5Q15Kmiwss0gTK";
+                v1.UnitWorkName = "Rh";
                 v1.ParentId = AddUnitWork();
-                v2.UnitWorkName = "WK0ON9qN1XPNXHS";
+                v2.UnitWorkName = "gyXkf1BSygfBpwpQ1w";
                 v2.ParentId = v1.ParentId; 
                 context.Set<UnitWork>().Add(v1);
                 context.Set<UnitWork>().Add(v2);
@@ -220,7 +220,7 @@ namespace Bread.ExamSystem.Project.Test
             {
                 try{
 
-                v.UnitWorkName = "sA";
+                v.UnitWorkName = "dEv";
                 context.Set<UnitWork>().Add(v);
                 context.SaveChanges();
                 }

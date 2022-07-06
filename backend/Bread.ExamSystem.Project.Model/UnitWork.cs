@@ -14,10 +14,5 @@ namespace Bread.ExamSystem.Project.Model
         [Display(Name = "部门名称")]
         [Required(ErrorMessage = "{0}是必填项")]
         public string UnitWorkName { get; set; }
-        public List<UnitWork> Children { get; set; }
-        [Display(Name = "上级部门")]
-        public UnitWork Parent { get; set; }
-        [Display(Name = "上级部门")]
-        public Guid? ParentId { get; set; }
     }
 }
