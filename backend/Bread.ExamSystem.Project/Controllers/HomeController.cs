@@ -22,7 +22,7 @@ namespace Bread.ExamSystem.Project.Controllers
         [AllRights]
         public IActionResult Index()
         {
-            ViewData["title"] = "WTM";
+            ViewData["title"] = "关山难越考试系统";
             return View();
         }
 

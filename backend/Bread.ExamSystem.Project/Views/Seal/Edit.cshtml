@@ -1,0 +1,15 @@
+﻿@model Bread.ExamSystem.Project.ViewModel.SealVMs.SealVM
+@inject IStringLocalizer<Program> Localizer;
+
+<wt:form vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.Two">
+<wt:textbox field="Entity.Name" />
+<wt:textbox field="Entity.SType" />
+<wt:upload field="Entity.PhotoId" />
+</wt:row>
+    <wt:hidden field="Entity.ID" />
+    <wt:row align="AlignEnum.Right">
+        <wt:submitbutton />
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

@@ -19,7 +19,7 @@ layui.define(['laytpl', 'layer', 'element', 'util'], function (exports) {
     , pageTabs: $.cookie("pagemode") === 'Tab' //是否开启页面选项卡功能。单页版不推荐开启
 
 
-    , name: 'WTM'
+      , name: '关山难越考试系统'
     , tableName: 'layuiAdmin' //本地存储表名
     , MOD_NAME: '_wtm' //模块事件名
 

@@ -1,0 +1,13 @@
+﻿@model Bread.ExamSystem.Project.ViewModel.QuestionTypeVMs.QuestionTypeVM
+@inject IStringLocalizer<Program> Localizer;
+
+<wt:form vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.Two">
+<wt:textbox field="Entity.Name" />
+<wt:textbox field="Entity.Remark" />
+</wt:row>
+    <wt:row align="AlignEnum.Right">
+        <wt:submitbutton />
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

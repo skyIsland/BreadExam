@@ -6,6 +6,8 @@
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   
     <CopyRefAssembliesToPublishDirectory>true</CopyRefAssembliesToPublishDirectory>
+  
+    <UserSecretsId>d173d670-f522-418c-9828-d8c5103c2d24</UserSecretsId>
 </PropertyGroup>
 
 
@@ -20,7 +22,7 @@
    <ProjectReference Include="..\Bread.ExamSystem.Project.Model\Bread.ExamSystem.Project.Model.csproj" />
     <ProjectReference Include="..\Bread.ExamSystem.Project.DataAccess\Bread.ExamSystem.Project.DataAccess.csproj" />
     <ProjectReference Include="..\Bread.ExamSystem.Project.ViewModel\Bread.ExamSystem.Project.ViewModel.csproj" />
- </ItemGroup >
+ </ItemGroup>
 </Project>
 
 

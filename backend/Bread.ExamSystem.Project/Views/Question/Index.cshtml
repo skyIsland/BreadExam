@@ -1,0 +1,10 @@
+﻿@model Bread.ExamSystem.Project.ViewModel.QuestionVMs.QuestionListVM
+@inject IStringLocalizer<Program> Localizer;
+
+<wt:searchpanel vm="@Model" reset-btn="true">
+<wt:row items-per-row="ItemsPerRowEnum.Three">
+<wt:combobox field="Searcher.QuestionTypeID" items="Searcher.AllQuestionTypes" empty-text="@Localizer["Sys.All"]" />
+<wt:textbox field="Searcher.Subject" />
+</wt:row>
+</wt:searchpanel>
+<wt:grid vm="@Model" url="/Question/Search"/>

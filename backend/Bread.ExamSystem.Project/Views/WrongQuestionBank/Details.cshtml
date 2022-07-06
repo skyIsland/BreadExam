@@ -1,0 +1,13 @@
+﻿@model Bread.ExamSystem.Project.ViewModel.WrongQuestionBankVMs.WrongQuestionBankVM
+@inject IStringLocalizer<Program> Localizer;
+
+<wt:form vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.Two">
+<wt:display field="Entity.QuestionID" />
+<wt:display field="Entity.FrameworkUser.Name" />
+<wt:display field="Entity.WrongNumber" />
+</wt:row>
+    <wt:row align="AlignEnum.Right">
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

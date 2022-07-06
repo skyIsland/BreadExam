@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Bread.ExamSystem.Project.Model;
+using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WalkingTec.Mvvm.Core
@@ -33,5 +35,16 @@ namespace WalkingTec.Mvvm.Core
         [Display(Name = "_Admin.ZipCode")]
         [RegularExpression("^[0-9]{6,6}$", ErrorMessage = "Validate.{0}formaterror")]
         public string ZipCode { get; set; }
+
+        [Display(Name = "部门名称")]
+        public Guid? UnitWorkID { get; set; }
+
+        [Display(Name = "部门名称")]
+        public UnitWork UnitWork { get; set; }
+        /// <summary>
+        /// 外部登录
+        /// </summary>
+        [Display(Name = "外部登录")]
+        public string OpenID { get; set; }
     }
 }

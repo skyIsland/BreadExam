@@ -1,0 +1,14 @@
+﻿@model Bread.ExamSystem.Project.ViewModel.CollectionVMs.CollectionVM
+@inject IStringLocalizer<Program> Localizer;
+
+<wt:form vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.Two">
+<wt:combobox field="Entity.QuestionID" items="AllQuestions"/>
+<wt:combobox field="Entity.FrameworkUserID" items="AllFrameworkUsers"/>
+</wt:row>
+    <wt:hidden field="Entity.ID" />
+    <wt:row align="AlignEnum.Right">
+        <wt:submitbutton />
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

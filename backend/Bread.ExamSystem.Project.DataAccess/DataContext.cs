@@ -51,10 +51,7 @@ namespace Bread.ExamSystem.Project.DataAccess
         /// 登录账号参与考试记录
         /// </summary>
         public DbSet<RecordWithAccount> RecordWithAccounts { get; set; }
-        /// <summary>
-        /// 登录用户
-        /// </summary>
-        public DbSet<WebUser> WebUsers { get; set; }
+
         /// <summary>
         /// 轮播图设置
         /// </summary>

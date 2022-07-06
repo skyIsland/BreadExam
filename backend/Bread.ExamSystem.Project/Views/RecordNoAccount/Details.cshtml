@@ -1,0 +1,19 @@
+﻿@model Bread.ExamSystem.Project.ViewModel.RecordNoAccountVMs.RecordNoAccountVM
+@inject IStringLocalizer<Program> Localizer;
+
+<wt:form vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.Two">
+<wt:display field="Entity.ExaminationSetup.CreateBy" />
+<wt:display field="Entity.ParticipationTime" />
+<wt:display field="Entity.UserName" />
+<wt:display field="Entity.UnitWork" />
+<wt:display field="Entity.Achievement" />
+<wt:display field="Entity.QuestionId" />
+<wt:display field="Entity.QuestionAnswer" />
+<wt:display field="Entity.ExamineeAnswers" />
+<wt:display field="Entity.Phone" />
+</wt:row>
+    <wt:row align="AlignEnum.Right">
+        <wt:closebutton />
+    </wt:row>
+</wt:form>

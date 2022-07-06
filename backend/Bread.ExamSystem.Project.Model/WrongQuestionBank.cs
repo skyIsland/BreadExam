@@ -17,9 +17,9 @@ namespace Bread.ExamSystem.Project.Model
         public int QuestionID { get; set; }
         [Display(Name = "考试用户")]
         [Required(ErrorMessage = "考试用户是必须填写")]
-        public Guid? WebUserID { get; set; }
+        public Guid? FrameworkUserID { get; set; }
         [Display(Name = "考试用户")]
-        public WebUser WebUser { get; set; }
+        public FrameworkUser FrameworkUser { get; set; }
         [Display(Name = "做错次数")]
         public int WrongNumber { get; set; }
 

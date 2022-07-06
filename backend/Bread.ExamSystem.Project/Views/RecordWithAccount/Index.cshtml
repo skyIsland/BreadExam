@@ -1,0 +1,9 @@
+﻿@model Bread.ExamSystem.Project.ViewModel.RecordWithAccountVMs.RecordWithAccountListVM
+@inject IStringLocalizer<Program> Localizer;
+
+<wt:searchpanel vm="@Model" reset-btn="true">
+<wt:row items-per-row="ItemsPerRowEnum.Three">
+<wt:datetime field="Searcher.ParticipationTime" range="true" />
+</wt:row>
+</wt:searchpanel>
+<wt:grid vm="@Model" url="/RecordWithAccount/Search"/>

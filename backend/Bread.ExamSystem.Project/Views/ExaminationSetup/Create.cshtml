@@ -1,0 +1,25 @@
+﻿@model Bread.ExamSystem.Project.ViewModel.ExaminationSetupVMs.ExaminationSetupVM
+@inject IStringLocalizer<Program> Localizer;
+
+<wt:form vm="@Model">
+<wt:row items-per-row="ItemsPerRowEnum.Two">
+<wt:textbox field="Entity.Title" />
+<wt:datetime field="Entity.StrTime" />
+<wt:datetime field="Entity.EndTime" />
+<wt:combobox field="Entity.CourseEnum" />
+<wt:textbox field="Entity.DXNumer" />
+<wt:textbox field="Entity.DXScore" />
+<wt:textbox field="Entity.DSXNumer" />
+<wt:textbox field="Entity.DSXScore" />
+<wt:textbox field="Entity.PDNumer" />
+<wt:textbox field="Entity.PDScore" />
+<wt:textbox field="Entity.TestTime" />
+<wt:combobox field="Entity.SealId" items="AllSeals"/>
+<wt:combobox field="Entity.ParticipationTypes" />
+<wt:textbox field="Entity.Subject" />
+</wt:row>
+    <wt:row align="AlignEnum.Right">
+        <wt:submitbutton />
+        <wt:closebutton />
+    </wt:row>
+</wt:form>
