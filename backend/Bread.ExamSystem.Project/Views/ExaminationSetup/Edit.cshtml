@@ -72,16 +72,16 @@
 </wt:form>
 
 <script>
-    $("#ExaminationSetupVM_Entity_DXNumer,#ExaminationSetupVM_Entity_DXScore,#ExaminationSetupVM_Entity_DSXNumer,#ExaminationSetupVM_Entity_DSXScore,#ExaminationSetupVM_Entity_PDNumer,#ExaminationSetupVM_Entity_PDScore").bind('input propertychange', function () {
-        var DXNumer = $('#ExaminationSetupVM_Entity_DXNumer').val();
-        var DXScore = $('#ExaminationSetupVM_Entity_DXScore').val();
-        var DSXNumer = $('#ExaminationSetupVM_Entity_DSXNumer').val();
-        var DSXScore = $('#ExaminationSetupVM_Entity_DSXScore').val();
-        var PDNumer = $('#ExaminationSetupVM_Entity_PDNumer').val();
-        var PDScore = $('#ExaminationSetupVM_Entity_PDScore').val();
-        $('#zf').val(DXNumer * DXScore + DSXNumer * DSXScore + PDNumer * PDScore);
+    $(function () {
+        $("#ExaminationSetupVM_Entity_DXNumer,#ExaminationSetupVM_Entity_DXScore,#ExaminationSetupVM_Entity_DSXNumer,#ExaminationSetupVM_Entity_DSXScore,#ExaminationSetupVM_Entity_PDNumer,#ExaminationSetupVM_Entity_PDScore").bind('input propertychange', function () {
+            var DXNumer = $('#ExaminationSetupVM_Entity_DXNumer').val();
+            var DXScore = $('#ExaminationSetupVM_Entity_DXScore').val();
+            var DSXNumer = $('#ExaminationSetupVM_Entity_DSXNumer').val();
+            var DSXScore = $('#ExaminationSetupVM_Entity_DSXScore').val();
+            var PDNumer = $('#ExaminationSetupVM_Entity_PDNumer').val();
+            var PDScore = $('#ExaminationSetupVM_Entity_PDScore').val();
+            $('#zf').val(DXNumer * DXScore + DSXNumer * DSXScore + PDNumer * PDScore);
+        }).trigger('input');
     });
-
-
-    $('#zf')
+   
 </script>

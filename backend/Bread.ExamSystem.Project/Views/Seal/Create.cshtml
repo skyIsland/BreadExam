@@ -1,14 +1,134 @@
 ﻿@model Bread.ExamSystem.Project.ViewModel.SealVMs.SealVM
 @inject IStringLocalizer<Program> Localizer;
 
-<wt:form vm="@Model">
-<wt:row items-per-row="ItemsPerRowEnum.Two">
-<wt:textbox field="Entity.Name" />
-<wt:textbox field="Entity.SType" />
-<wt:upload field="Entity.PhotoId" />
-</wt:row>
-    <wt:row align="AlignEnum.Right">
-        <wt:submitbutton />
-        <wt:closebutton />
-    </wt:row>
-</wt:form>
+<blockquote class="layui-elem-quote layui-text">
+    先生成预览，再保存
+</blockquote>
+
+<form class="layui-form" id="#form1" enctype="multipart/form-data">
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">单位名称</label>
+            <div class="layui-input-inline">
+                <input type="tel" id="dw" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">印章类型</label>
+            <div class="layui-input-inline">
+                <input type="text" id="lx" class="layui-input">
+            </div>
+        </div>
+        <input type="hidden" id="imghi" />
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button type="button" class="layui-btn" lay-submit="" lay-filter="demo1" onclick="Generate()">生成预览</button>
+            <button type="button" class="layui-btn" lay-submit="" lay-filter="demo1" onclick="SavePic()">保存图片</button>
+            <button type="button" class="layui-btn layui-btn-primary" onclick="SaveModel()">完成制作</button>
+        </div>
+    </div>
+
+
+
+</form>
+
+<img id="yzimg" style="margin: 0 auto;" />
+
+<script>
+
+
+    function Generate() {
+        var name1 = $("#dw").val();
+        var name2 = $("#lx").val();
+        $("#yzimg").attr("src", "/Seal/GeneratePic?name1=" + name1 + "&name2=" + name2);
+    }
+
+    function SavePic() {
+
+        layui.use('layer', function () {
+            var $ = layui.jquery, layer = layui.layer;
+            var name1 = $("#dw").val();
+            var name2 = $("#lx").val();
+            $.ajax({
+                url: "/Seal/SavePic?name1=" + name1 + "&name2=" + name2,
+                type: 'get',
+                dataType: 'text',
+                processData: false,
+                contentType: false,
+                success: function (res) {
+                    if (res != '上传失败') {
+                        layer.open({
+                            title: '在线调试'
+                            , content: '上传成功'
+                        });
+                        $('#imghi').val(res);
+                    } else {
+                        openWindow(res)
+                    }
+                },
+                error: function (xhr) {
+                    alert("上传失败，请重新选择");
+                },
+            })
+        })
+    }
+
+    function SaveModel() {
+        var name1 = $("#dw").val();
+        var name2 = $("#lx").val();
+
+        var imgid = $('#imghi').val();
+        console.log(name1);
+        console.log(name2);
+        console.log(imgid);
+        $.ajax({
+            url: '/Seal/SaveModel',
+            type: 'POST',
+            // 设置的是请求参数
+            data: { name1: name1, name2: name2, imgid: imgid},
+            // 用于设置响应体的类型 注意 跟 data 参数没关系！！！
+            dataType: 'text',
+            success: function (res) {
+                openWindow(res);
+            },
+            error: function (xhr) {
+                alert("上传失败，请重新选择");
+            },
+        })
+
+        //$.ajax({
+        //    url: "/CURD/Seal/SaveModel",
+        //    type: 'post',
+        //    data: { name1: name1, name2: name2, imgid: $('#imghi').val() },
+        //    dataType: 'text',
+        //    processData: false,
+        //    contentType: false,
+        //    success: function (res) {
+        //        openWindow(res)
+        //    },
+        //    error: function (xhr) {
+        //        alert("上传失败，请重新选择");
+        //    },
+        //})
+    }
+
+    function openWindow(title) {
+        layui.use('layer', function () {
+            layer.open({
+                type: 1
+                , offset: 'auto' //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset
+                , id: 'layerDemo' + title //防止重复弹出
+                , content: '<div style="padding: 20px 100px;">' + title + '</div>'
+                , btn: '关闭全部'
+                , btnAlign: 'c' //按钮居中
+                , shade: 0 //不显示遮罩
+                , yes: function () {
+                    window.location.reload()
+                }
+            });
+        });
+    }
+
+</script>
