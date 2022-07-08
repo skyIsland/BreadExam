@@ -104,15 +104,13 @@
 					const urlBase = this.Common.urlBase;
 					var that = this;
 					uni.request({
-						url: urlBase + 'api/_Account/Login', 
-						header: {
-							"Content-Type": "application/x-www-form-urlencoded"
-						},
+						url: urlBase + 'api/_Account/LoginJwt', 
+						// header: {
+						// 	"Content-Type": "application/x-www-form-urlencoded"
+						// },
 						data: {
-							userid: this.name,
-							password: this.pwd,
-							rememberLogin: false,
-							cookie: false
+							account: this.name,
+							password: this.pwd						
 						},
 						method: 'POST',
 						success: (res) => {

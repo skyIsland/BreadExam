@@ -1,5 +1,5 @@
 
-const urlBase = 'https://localhost:8931/';
+const urlBase = 'http://localhost:8931/';
 function chkLogin() {
 
 	var access_token = uni.getStorageSync('access_token');
