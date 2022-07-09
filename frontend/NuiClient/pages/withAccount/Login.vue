@@ -3,10 +3,11 @@
 		<cu-custom bgColor="bg-gradual-blue">
 			<block slot="content">系统登录</block>
 		</cu-custom>
-	
+
 		<view class="image-item">
 			<view class="image-content">
-				<image style="width: 100%; height: 200px; background-color: #eeeeee;" src="../../static/逢考必过.jpg"></image>
+				<image style="width: 100%; height: 200px; background-color: #eeeeee;" src="../../static/逢考必过.jpg">
+				</image>
 			</view>
 		</view>
 
@@ -26,8 +27,8 @@
 
 			<button class="cu-btn block bg-blue margin-tb-sm lg" @click="singup">登录</button>
 		</view>
-		
-		
+
+
 
 		<view class="cu-modal" :class="modalName=='Modal'?'show':''">
 			<view class="cu-dialog">
@@ -55,7 +56,8 @@
 				</view>
 				<view class="cu-bar bg-white justify-end">
 					<view class="action">
-						<button v-if="btnchose==='close'" class="cu-btn bg-green margin-left" @tap="hideModal">关闭</button>
+						<button v-if="btnchose==='close'" class="cu-btn bg-green margin-left"
+							@tap="hideModal">关闭</button>
 						<button v-if="btnchose==='goto'" class="cu-btn bg-green margin-left" @tap="gotopage">好的</button>
 					</view>
 				</view>
@@ -64,19 +66,20 @@
 
 		<view class="flex solid-bottom  justify-center">
 			<view class="padding-sm margin-xs radius">
-				<view class="cu-avatar xl round margin-left" style="background-image:url(../../static/WX.jpg);" ></view>
+				<view class="cu-avatar xl round margin-left" style="background-image:url(../../static/WX.jpg);"></view>
 			</view>
 			<view class="padding-sm margin-xs radius">
 				<view class="cu-avatar xl round margin-left" style="background-image:url(../../static/QQ.jpg);"></view>
 			</view>
 
 			<view class="padding-sm margin-xs radius">
-				<view class="cu-avatar xl round margin-left" style="background-image:url(../../static/GITHUB.jpg);" @click="GitHubLogin"></view>
+				<view class="cu-avatar xl round margin-left" style="background-image:url(../../static/GITHUB.jpg);"
+					@click="GitHubLogin"></view>
 			</view>
 		</view>
-		
-		<view class="flex solid-bottom padding justify-end" >
-			<view class="bg-red padding-sm margin-xs radius" @click="gotoreg">注册</view>			
+
+		<view class="flex solid-bottom padding justify-end">
+			<view class="bg-red padding-sm margin-xs radius" @click="gotoreg">注册</view>
 		</view>
 
 
@@ -100,17 +103,17 @@
 				if (this.name.length <= 0 || this.pwd.length <= 0) {
 					this.errmsg = "姓名，密码不能为空"
 					this.showModal("Modal");
-				} else {													
+				} else {
 					const urlBase = this.Common.urlBase;
 					var that = this;
 					uni.request({
-						url: urlBase + 'api/_Account/LoginJwt', 
-						// header: {
-						// 	"Content-Type": "application/x-www-form-urlencoded"
-						// },
+						url: urlBase + 'api/_Account/LoginJwt',
+						header: {
+							"Content-Type": "application/json"
+						},
 						data: {
 							account: this.name,
-							password: this.pwd						
+							password: this.pwd
 						},
 						method: 'POST',
 						success: (res) => {
@@ -121,13 +124,13 @@
 									title: '登录成功',
 									duration: 2000,
 									icon: 'none',
-									success() {																	
+									success() {
 										uni.navigateTo({
 											url: '../withAccount/testlist'
 										});
 									}
 								});
-							}else if(res.statusCode == 400){
+							} else if (res.statusCode == 400) {
 								uni.showToast({
 									title: res.data,
 									duration: 2000,
@@ -156,13 +159,13 @@
 					url: "../noAccount/testview"
 				})
 			},
-			gotoreg(){
-				
+			gotoreg() {
+
 				uni.navigateTo({
 					url: "../withAccount/registered"
 				})
 			},
-			GitHubLogin(){
+			GitHubLogin() {
 				const urlBase = this.Common.urlBase;
 				//window.location.href = 'https://github.com/login/oauth/authorize?client_id=d08c83abe14c9f4e20f8';
 				window.location.href = urlBase + "ExternalLogin?provider=github&terminal=mobile";

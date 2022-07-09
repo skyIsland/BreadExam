@@ -15,7 +15,7 @@ function retoken() {
 	var access_token = uni.getStorageSync('access_token');
 	var refresh_token = uni.getStorageSync('refresh_token');
 	uni.request({
-		url: urlBase + 'api/_login/RefreshToken?refreshToken=' + refresh_token,
+		url: urlBase + 'api/_Account/RefreshToken?refreshToken=' + refresh_token,
 		header: {
 			'Authorization': 'Bearer ' + access_token
 		},
