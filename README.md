@@ -1,4 +1,7 @@
-﻿#### 关山难越考试系统
+﻿> 来自Kgxk（煤矿大佬）的分享，本人只是拿来学习Wtm框架的开发，后续再慢慢优化
+[B站视频地址](https://www.bilibili.com/video/BV1dA411a7Ez?spm_id_from=333.337.search-card.all.click)
+
+#### 关山难越考试系统
 
 1. 题型设置
 1. 题库管理
