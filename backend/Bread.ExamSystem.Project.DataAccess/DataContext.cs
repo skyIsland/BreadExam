@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Bread.ExamSystem.Project.Model;
 using Microsoft.EntityFrameworkCore;
@@ -97,9 +98,20 @@ namespace Bread.ExamSystem.Project.DataAccess
                     UserCode = user.ITCode,
                     RoleCode = "001"
                 };
-                
+
+                var questionTypes = new List<QuestionType>()
+                {
+                     new QuestionType{Name= "单选" },
+                     new QuestionType{Name= "多选" },
+                     new QuestionType{Name= "判断" },
+                };
+
+
                 Set<FrameworkUser>().Add(user);
                 Set<FrameworkUserRole>().Add(userrole);
+                Set<QuestionType>().AddRange(questionTypes);
+
+
                 await SaveChangesAsync();
             }
             return state;
